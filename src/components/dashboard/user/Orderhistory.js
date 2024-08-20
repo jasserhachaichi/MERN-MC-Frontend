@@ -39,7 +39,7 @@ function Orderhistory() {
       const fetchData = async () => {
         setLoading(true);
         try {
-          const response = await axios.get(`http://localhost:4000/product/orders`, { 
+          const response = await axios.get(`https://mern-material-cutting.onrender.com/product/orders`, { 
             params: { userId: userID, page: currentPage, limit: PerPage, search: searchInput, status: statusFilter },
             withCredentials: true 
           });
@@ -220,7 +220,7 @@ function Orderhistory() {
     
         if (result.isConfirmed) {
           try {
-            await axios.post(`http://localhost:4000/product/cancelorder/${orderId}`, { withCredentials: true });
+            await axios.post(`https://mern-material-cutting.onrender.com/product/cancelorder/${orderId}`, { withCredentials: true });
             Swal.fire('Canceled!', 'Order has been canceled.', 'success');
             fetchData(); // Refresh the data
           } catch (error) {
@@ -243,7 +243,7 @@ function Orderhistory() {
     
         if (result.isConfirmed) {
           try {
-            await axios.delete(`http://localhost:4000/product/deleteorder/${orderId}`, { withCredentials: true });
+            await axios.delete(`https://mern-material-cutting.onrender.com/product/deleteorder/${orderId}`, { withCredentials: true });
             Swal.fire('Deleted!', 'Order has been deleted.', 'success');
             fetchData(); // Refresh the data
           } catch (error) {

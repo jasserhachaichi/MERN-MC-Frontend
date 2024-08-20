@@ -30,7 +30,7 @@ function Signinpage() {
             return;
         }
         try {
-            const response = await axios.post('http://localhost:4000/auth/forgot-password', { email });
+            const response = await axios.post('https://mern-material-cutting.onrender.com/auth/forgot-password', { email });
             Swal.fire({
                 title: response.data.result ? 'Success' : 'Error',
                 text: response.data.message,
@@ -53,7 +53,7 @@ function Signinpage() {
         try {
             btnRef1.current.style.display = 'none'; 
             btnRef2.current.style.display = 'block';
-            const response = await axios.post('http://localhost:4000/auth/login', data, { withCredentials: true });
+            const response = await axios.post('https://mern-material-cutting.onrender.com/auth/login', data, { withCredentials: true });
 
             if (response.data.result) {
        /*                 Swal.fire({
@@ -99,7 +99,7 @@ function Signinpage() {
     const onSuccess = (res) => {
         console.log("Login Success! Current user: ", res.profileObj);
         try {
-            axios.post('http://localhost:4000/auth/google/login', res.profileObj, { withCredentials: true } 
+            axios.post('https://mern-material-cutting.onrender.com/auth/google/login', res.profileObj, { withCredentials: true } 
             ).then(response => {
                 if (response.data.result) {
                     if (response.data.token) {

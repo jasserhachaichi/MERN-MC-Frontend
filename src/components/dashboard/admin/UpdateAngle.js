@@ -25,7 +25,7 @@ function UpdateAngle() {
     useEffect(() => {
         const fetchAngle = async () => {
           try {
-            const response = await axios.get(`http://localhost:4000/product/angle/${AngleId}`, {withCredentials: true});
+            const response = await axios.get(`https://mern-material-cutting.onrender.com/product/angle/${AngleId}`, {withCredentials: true});
             const pivot = {
                 angle_name: response.data.angle.Angle_name,
                 angledescription: response.data.angle.Angledescription,
@@ -42,7 +42,7 @@ function UpdateAngle() {
             setSelectedOption( '' +  response.data.angle.discount_option);
             //addVariation();
             if(response.data.angle.avatarAngle){
-                setImagePreviews({avatarAngle:  'http://localhost:4000/product/image/angle/' + response.data.angle.avatarAngle})
+                setImagePreviews({avatarAngle:  'https://mern-material-cutting.onrender.com/product/image/angle/' + response.data.angle.avatarAngle})
             }else{
                 setImagePreviews({avatarAngle: '/assets/media/svg/files/blank-image.svg',})
             }
@@ -201,7 +201,7 @@ function UpdateAngle() {
         //console.log(data);
 
         try {
-            const response = await axios.put(`http://localhost:4000/product/angle/${AngleId}`, data, {
+            const response = await axios.put(`https://mern-material-cutting.onrender.com/product/angle/${AngleId}`, data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

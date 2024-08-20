@@ -26,7 +26,7 @@ function Settings() {
         useEffect(() => {
             const fetchSettings = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/settings/general',{withCredentials: true});
+                const response = await axios.get('https://mern-material-cutting.onrender.com/settings/general',{withCredentials: true});
                 if (response.data) {
                     setFormDataGeneral({
                     meta_title: response.data.meta_title || '',
@@ -59,7 +59,7 @@ function Settings() {
         btnRef1.current.style.display = 'none';
         btnRef2.current.style.display = 'block';
         try {
-          const response = await axios.put('http://localhost:4000/settings/general', formDataGeneral,{withCredentials: true});
+          const response = await axios.put('https://mern-material-cutting.onrender.com/settings/general', formDataGeneral,{withCredentials: true});
           console.log(response.data.message);
         Swal.fire({
             icon: 'success',
@@ -75,9 +75,9 @@ function Settings() {
       useEffect(() => {
         const fetchSettings = async () => {
           try {
-            const response = await axios.get('http://localhost:4000/settings/invoice', { withCredentials: true });
+            const response = await axios.get('https://mern-material-cutting.onrender.com/settings/invoice', { withCredentials: true });
             if (response.data) {
-                const imgpath = "http://localhost:4000/settings/image/" + response.data.logopath;
+                const imgpath = "https://mern-material-cutting.onrender.com/settings/image/" + response.data.logopath;
                 if(imgpath){
                     setImagePreview(imgpath);
                 }
@@ -146,7 +146,7 @@ function Settings() {
             if (selectedFile) {
                 formData.append('logo', selectedFile);
             }
-          const response = await axios.put('http://localhost:4000/settings/invoice', formData, { withCredentials: true });
+          const response = await axios.put('https://mern-material-cutting.onrender.com/settings/invoice', formData, { withCredentials: true });
           Swal.fire({
             icon: 'success',
             title: response.data.message,
@@ -164,7 +164,7 @@ function Settings() {
     useEffect(() => {
         const fetchMaterials = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/settings/mother-material',{withCredentials: true});
+                const response = await axios.get('https://mern-material-cutting.onrender.com/settings/mother-material',{withCredentials: true});
                 setMotherMaterialList(response.data.map(material => ({ MotherMaterial: material.mother_material_name, save: true, _id: material._id })));
             } catch (error) {
                 console.error('Failed to fetch materials:', error);
@@ -196,7 +196,7 @@ function Settings() {
 
         if (materialToRemove._id) {
             try {
-                await axios.delete(`http://localhost:4000/settings/mother-material/${materialToRemove._id}`,{withCredentials: true});
+                await axios.delete(`https://mern-material-cutting.onrender.com/settings/mother-material/${materialToRemove._id}`,{withCredentials: true});
                 Swal.fire('Deleted!', 'Material has been deleted.', 'success');
             } catch (error) {
                 Swal.fire('Error!', 'Failed to delete material.', 'error');
@@ -224,7 +224,7 @@ function Settings() {
         const materialToSave = list[index];
 
         try {
-            const response = await axios.post('http://localhost:4000/settings/mother-material', {
+            const response = await axios.post('https://mern-material-cutting.onrender.com/settings/mother-material', {
                 mother_material_name: materialToSave.MotherMaterial
             },{withCredentials: true});
             list[index] = { ...materialToSave, save: true, _id: response.data._id };

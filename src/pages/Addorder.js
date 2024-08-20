@@ -23,11 +23,11 @@ function Addorder() {
     useEffect(() => {
         const verifuserexistance = () => {
             if(userId){
-                axios.get(`http://localhost:4000/product/userexists/${userId}`)
+                axios.get(`https://mern-material-cutting.onrender.com/product/userexists/${userId}`)
                 .then(response => {
                   if (response.data.success) {
                     if(userId){
-                        axios.get(`http://localhost:4000/product/userorderverif/${userId}`)
+                        axios.get(`https://mern-material-cutting.onrender.com/product/userorderverif/${userId}`)
                         .then(response => {
                         if (response.data.success) {
                             const emptyKeys = response.data.emptyAttributes;
@@ -166,7 +166,7 @@ function Addorder() {
     ];
     useEffect(() => {
         if (currentStep === 2) {
-            axios.get('http://localhost:4000/product/order/shapes')
+            axios.get('https://mern-material-cutting.onrender.com/product/order/shapes')
                 .then(response => {
                     setShapes(response.data.shapes);
                     /*                     Swal.fire({
@@ -179,7 +179,7 @@ function Addorder() {
                 });
         }
         if (currentStep === 3) {
-            axios.get('http://localhost:4000/product/order/materials')
+            axios.get('https://mern-material-cutting.onrender.com/product/order/materials')
                 .then(response => {
                     setMaterials(response.data.materials);
 /*                                          Swal.fire({
@@ -192,7 +192,7 @@ function Addorder() {
                 });
         }
         if (currentStep === 4) {
-            axios.get('http://localhost:4000/product/order/angles')
+            axios.get('https://mern-material-cutting.onrender.com/product/order/angles')
                 .then(response => {
                     setAngles(response.data.angles);
 /*                     if (response.data.angles.length > 0) {
@@ -209,7 +209,7 @@ function Addorder() {
                 });
         }
         if (currentStep === 5) {
-            axios.get('http://localhost:4000/product/order/edges')
+            axios.get('https://mern-material-cutting.onrender.com/product/order/edges')
                 .then(response => {
                     setEdges(response.data.edges);
                 })
@@ -253,9 +253,9 @@ function Addorder() {
                             id: firstShape._id,
                             name: firstShape.shapeName,
                             description: firstShape.shapedescription,
-                            image: `http://localhost:4000/product/image/shape/${firstShape.avatarDimensionsImg}`,
-                            angleIMG: `http://localhost:4000/product/image/shape/${firstShape.avatarAnglesImg}`,
-                            edgeIMG: `http://localhost:4000/product/image/shape/${firstShape.avatarEdgeImg}`,
+                            image: `https://mern-material-cutting.onrender.com/product/image/shape/${firstShape.avatarDimensionsImg}`,
+                            angleIMG: `https://mern-material-cutting.onrender.com/product/image/shape/${firstShape.avatarAnglesImg}`,
+                            edgeIMG: `https://mern-material-cutting.onrender.com/product/image/shape/${firstShape.avatarEdgeImg}`,
                             minA: firstShape.minA,
                             maxA: firstShape.maxA,
                             minB: firstShape.minB,
@@ -321,7 +321,7 @@ function Addorder() {
                             id: fistmaterial._id,
                             name: fistmaterial.material_name,
                             description: fistmaterial.materialdescription,
-                            image: `http://localhost:4000/product/image/material/${fistmaterial.avatarMaterial}`,
+                            image: `https://mern-material-cutting.onrender.com/product/image/material/${fistmaterial.avatarMaterial}`,
                             material: fistmaterial.material,
                             thickness: fistmaterial.thickness,
                         });
@@ -373,9 +373,9 @@ function Addorder() {
             id: shape._id,
             name: shape.shapeName,
             description: shape.shapedescription,
-            image: `http://localhost:4000/product/image/shape/${shape.avatarDimensionsImg}`,
-            angleIMG: `http://localhost:4000/product/image/shape/${shape.avatarAnglesImg}` ,
-            edgeIMG: `http://localhost:4000/product/image/shape/${shape.avatarEdgeImg}` ,
+            image: `https://mern-material-cutting.onrender.com/product/image/shape/${shape.avatarDimensionsImg}`,
+            angleIMG: `https://mern-material-cutting.onrender.com/product/image/shape/${shape.avatarAnglesImg}` ,
+            edgeIMG: `https://mern-material-cutting.onrender.com/product/image/shape/${shape.avatarEdgeImg}` ,
             minA: shape.minA,
             maxA: shape.maxA,
             minB: shape.minB,
@@ -391,7 +391,7 @@ function Addorder() {
             id: material._id,
             name: material.material_name,
             description: material.materialdescription,
-            image: `http://localhost:4000/product/image/material/${material.avatarMaterial}`,
+            image: `https://mern-material-cutting.onrender.com/product/image/material/${material.avatarMaterial}`,
             material: material.material,
             thickness: material.thickness,
         });
@@ -527,7 +527,7 @@ function Addorder() {
         };
         console.log(data);
 
-        await axios.post('http://localhost:4000/product/orderprice', data,{ withCredentials: true })
+        await axios.post('https://mern-material-cutting.onrender.com/product/orderprice', data,{ withCredentials: true })
             .then(response => {
                 console.log(response.data);
                 setorderData(response.data);
@@ -592,7 +592,7 @@ function Addorder() {
             formData.append('files', file);
         });
 
-        axios.post(`http://localhost:4000/product/saveorderdata/${userId}`, formData, { withCredentials: true, headers: { 'Content-Type': 'multipart/form-data' } })
+        axios.post(`https://mern-material-cutting.onrender.com/product/saveorderdata/${userId}`, formData, { withCredentials: true, headers: { 'Content-Type': 'multipart/form-data' } })
             .then(response => {
                 console.log(response.data);
                 Swal.fire('Success', 'Order saved successfully', 'success');
@@ -717,7 +717,7 @@ function Addorder() {
                                                 {shapes.map((shape) => (
                                                     <div className="col-6 col-sm-3 mb-9" key={shape._id}>
                                                         <img className="image-checkbox"
-                                                            src={`http://localhost:4000/product/image/shape/${shape.avatarShapeImg}`}
+                                                            src={`https://mern-material-cutting.onrender.com/product/image/shape/${shape.avatarShapeImg}`}
                                                             data-input="A"
                                                             alt={shape.shapeName}
                                                             data-shape-id={shape._id}
@@ -842,7 +842,7 @@ function Addorder() {
                                                 {materials.map((material) => (
                                                     <div className="col-6 col-sm-3 mb-9" key={material._id}>
                                                         <img className="image-checkbox"
-                                                            src={`http://localhost:4000/product/image/material/${material.avatarMaterial}`}
+                                                            src={`https://mern-material-cutting.onrender.com/product/image/material/${material.avatarMaterial}`}
                                                             alt={material.material_name}
                                                             onClick={() => handleMaterialClick(material)}
                                                         />
@@ -918,7 +918,7 @@ function Addorder() {
                                         {angles.map((angle) => (
                                             <div className="col-6 col-sm-3 mb-9" key={angle._id}>
                                                 <img className="image-checkbox"
-                                                    src={`http://localhost:4000/product/image/angle/${angle.avatarAngle}`}
+                                                    src={`https://mern-material-cutting.onrender.com/product/image/angle/${angle.avatarAngle}`}
                                                     alt={angle.Angle_name}
                                                     onClick={() => handleAngleClick(angle)}
                                                 />
@@ -1031,7 +1031,7 @@ function Addorder() {
                                     {edges.map((edge) => (
                                         <div className="col-6 col-sm-3 mb-9" key={edge._id}>
                                             <img className="image-checkbox"
-                                                src={`http://localhost:4000/product/image/edge/${edge.avatarEdge}`}
+                                                src={`https://mern-material-cutting.onrender.com/product/image/edge/${edge.avatarEdge}`}
                                                 alt={edge.Edge_name}
                                                 onClick={() => handleEdgeClick(edge)}
                                             />

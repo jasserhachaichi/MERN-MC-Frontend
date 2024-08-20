@@ -83,7 +83,7 @@ function AllEdges() {
                 <div className="symbol rounded-0 symbol-50px overflow-hidden me-3">
                   <a href="#">
                     <div className="symbol-label">
-                      <img src={`http://localhost:4000/product/image/edge/${row.original.avatarEdge}` || '/assets/images/Default-profile.jpg'} alt={row.original.Edge_name} className="w-100" />
+                      <img src={`https://mern-material-cutting.onrender.com/product/image/edge/${row.original.avatarEdge}` || '/assets/images/Default-profile.jpg'} alt={row.original.Edge_name} className="w-100" />
                     </div>
                   </a>
                 </div>
@@ -177,7 +177,7 @@ function AllEdges() {
     
         if (result.isConfirmed) {
           try {
-            await axios.delete(`http://localhost:4000/product/deleteedge/${userId}`, { withCredentials: true });
+            await axios.delete(`https://mern-material-cutting.onrender.com/product/deleteedge/${userId}`, { withCredentials: true });
             Swal.fire('Deleted!', 'Edge has been deleted.', 'success');
             fetchData(); // Refresh the data
           } catch (error) {

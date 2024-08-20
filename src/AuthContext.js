@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkAuthStatus = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/protected', { withCredentials: true });
+        const response = await axios.get('https://mern-material-cutting.onrender.com/protected', { withCredentials: true });
         if (response.data.isAuthenticated && response.data.user) {
           setIsAuthenticated(true);
           setUserRole(response.data.user.role); // Assuming the role is sent in the response
@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
 
   const signOut = async () => {
     try {
-      await axios.post('http://localhost:4000/auth/signout', {}, { withCredentials: true });
+      await axios.post('https://mern-material-cutting.onrender.com/auth/signout', {}, { withCredentials: true });
       setIsAuthenticated(false);
       setUserRole(null);
       setUserEmail(null);

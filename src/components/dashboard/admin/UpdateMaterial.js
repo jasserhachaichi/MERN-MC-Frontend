@@ -28,7 +28,7 @@ function UpdateMaterial() {
     useEffect(() => {
         const fetchMaterial = async () => {
           try {
-            const response = await axios.get(`http://localhost:4000/product/material/${MaterialId}`, {withCredentials: true});
+            const response = await axios.get(`https://mern-material-cutting.onrender.com/product/material/${MaterialId}`, {withCredentials: true});
             const pivot = {
                 material_name: response.data.material.material_name,
                 materialdescription: response.data.material.materialdescription,
@@ -47,7 +47,7 @@ function UpdateMaterial() {
             setSelectedOption( '' +  response.data.material.discount_option);
             //addVariation();
             if(response.data.material.avatarMaterial){
-                setImagePreviews({avatarMaterial:  'http://localhost:4000/product/image/material/' + response.data.material.avatarMaterial})
+                setImagePreviews({avatarMaterial:  'https://mern-material-cutting.onrender.com/product/image/material/' + response.data.material.avatarMaterial})
             }else{
                 setImagePreviews({avatarMaterial: '/assets/media/svg/files/blank-image.svg',})
             }
@@ -68,7 +68,7 @@ function UpdateMaterial() {
     }, [formData.avatarMaterial]);
     useEffect(() => {
         // Fetch material types from the backend
-        axios.get('http://localhost:4000/product/order/materialtypes')
+        axios.get('https://mern-material-cutting.onrender.com/product/order/materialtypes')
             .then(response => {
                 setMaterialTypes(response.data.materialtypes);
             })
@@ -222,7 +222,7 @@ function UpdateMaterial() {
         //console.log(data);
 
         try {
-            const response = await axios.put(`http://localhost:4000/product/material/${MaterialId}`, data, {
+            const response = await axios.put(`https://mern-material-cutting.onrender.com/product/material/${MaterialId}`, data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

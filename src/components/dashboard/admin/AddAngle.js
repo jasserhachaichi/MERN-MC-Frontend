@@ -160,7 +160,7 @@ function AddAngle() {
         console.log(formData);
 
         try {
-            const response = await axios.post('http://localhost:4000/product/addangle', data, {
+            const response = await axios.post('https://mern-material-cutting.onrender.com/product/addangle', data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

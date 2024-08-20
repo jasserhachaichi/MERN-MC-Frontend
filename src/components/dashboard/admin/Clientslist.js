@@ -19,7 +19,7 @@ function Clientlist() {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const response = await axios.get(`http://localhost:4000/api/clients`, { params: { page: currentPage, limit: PerPage, search: searchInput,}, withCredentials: true });
+                const response = await axios.get(`https://mern-material-cutting.onrender.com/api/clients`, { params: { page: currentPage, limit: PerPage, search: searchInput,}, withCredentials: true });
                 setData(response.data.users);
                 setTotalPages(response.data.totalPages);
                 setCurrentPage(response.data.currentPage);
@@ -124,7 +124,7 @@ function Clientlist() {
     
         if (result.isConfirmed) {
           try {
-            await axios.delete(`http://localhost:4000/api/deletestaff/${userId}`, { withCredentials: true });
+            await axios.delete(`https://mern-material-cutting.onrender.com/api/deletestaff/${userId}`, { withCredentials: true });
             Swal.fire('Deleted!', 'User has been deleted.', 'success');
             fetchData(); // Refresh the data
           } catch (error) {
@@ -157,7 +157,7 @@ function Clientlist() {
     
         if (formValues) {
           try {
-            await axios.post('http://localhost:4000/chat/user/post', {
+            await axios.post('https://mern-material-cutting.onrender.com/chat/user/post', {
               receiver: userId,
               content: formValues
             }, { withCredentials: true });

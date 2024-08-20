@@ -30,7 +30,7 @@ function Homevitrine() {
     btnRef1.current.style.display = 'none';
     btnRef2.current.style.display = 'block';
     try {
-      const response = await axios.post('http://localhost:4000/form/sendemail', data, {withCredentials: true});
+      const response = await axios.post('https://mern-material-cutting.onrender.com/form/sendemail', data, {withCredentials: true});
       Swal.fire('Success', response.data.message, 'success');
       reset(); 
     } catch (error) {

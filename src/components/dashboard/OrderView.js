@@ -41,7 +41,7 @@ function OrderView() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/product/order/${orderId}`, {
+            const response = await axios.get(`https://mern-material-cutting.onrender.com/product/order/${orderId}`, {
                 params: { userId: userID },
                 withCredentials: true 
             });
@@ -121,7 +121,7 @@ function OrderView() {
                     <div className="d-flex flex-stack pb-10">
                         <a href="/">
                             <img alt="Logo"
-                                src={ "http://localhost:4000/settings/image/" + receiver.logopath} />
+                                src={ "https://mern-material-cutting.onrender.com/settings/image/" + receiver.logopath} />
                         </a>
                     </div>
                 )}
@@ -483,7 +483,7 @@ function OrderView() {
                                     <tr className="fw-bold text-gray-700 fs-5 border-bottom" key={index}>
                                         <td>{file.originalname}</td>
                                         <td className='d-print-none'>
-                                            <a href={`http://localhost:4000/product/image/order/${file.path}`} download={file.path}>Download</a>
+                                            <a href={`https://mern-material-cutting.onrender.com/product/image/order/${file.path}`} download={file.path}>Download</a>
                                         </td>
                                     </tr>
                                 ))}

@@ -177,7 +177,7 @@ function Profile() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/api/client/${userId}`,{withCredentials: true});
+                const response = await axios.get(`https://mern-material-cutting.onrender.com/api/client/${userId}`,{withCredentials: true});
                 setUser(response.data.user);
                 setImagePreview( response.data.user.image || response.data.user.imageUrl || '/assets/images/Default-profile.jpg');
                 setFName(response.data.user.firstName);
@@ -197,7 +197,7 @@ function Profile() {
             btnRef1.current.style.display = 'none';
             btnRef2.current.style.display = 'inline-block';
 
-            const response = await axios.put(`http://localhost:4000/api/user/${userId}/email`, { email: data.email }, { withCredentials: true });
+            const response = await axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/email`, { email: data.email }, { withCredentials: true });
             Swal.fire('Updated!', response.data.message, 'success');
             resetForm1();
             btnRef1.current.style.display = 'inline-block';
@@ -228,7 +228,7 @@ function Profile() {
     
         if (result.isConfirmed) {
           try {
-            await axios.delete(`http://localhost:4000/api/deleteaccount/${userId}`, { withCredentials: true });
+            await axios.delete(`https://mern-material-cutting.onrender.com/api/deleteaccount/${userId}`, { withCredentials: true });
             Swal.fire('Deleted!', 'Your account deleted successfully', 'success');
             navigate('/auth/signin');
           } catch (error) {
@@ -250,7 +250,7 @@ function Profile() {
             btnRef3.current.style.display = 'none';
             btnRef4.current.style.display = 'inline-block';
 
-            const response = await axios.put(`http://localhost:4000/api/user/${userId}/password`, {
+            const response = await axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/password`, {
                 current_password: data.current_password,
                 new_password: data.new_password,
                 confirm_password: data.confirm_password
@@ -305,7 +305,7 @@ const onSubmitIMG = async (data) => {
         formData.append('avatar', selectedFile);
       }
 
-      const response = await axios.put(`http://localhost:4000/api/user/img/${userId}`, formData, {
+      const response = await axios.put(`https://mern-material-cutting.onrender.com/api/user/img/${userId}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -341,7 +341,7 @@ const onSubmitIMG = async (data) => {
     btnRef9.current.style.display = 'none';
     btnRef10.current.style.display = 'inline-block';
 
-    axios.put(`http://localhost:4000/api/user/${userId}/firstname`, { firstName: data.firstName })
+    axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/firstname`, { firstName: data.firstName })
       .then(response => {
         setUser(response.data.user);
         setFName(response.data.user.firstName);
@@ -355,7 +355,7 @@ const onSubmitIMG = async (data) => {
   };
 
   const onSubmitLastName = data => {
-    axios.put(`http://localhost:4000/api/user/${userId}/lastname`, { lastName: data.lastName })
+    axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/lastname`, { lastName: data.lastName })
       .then(response => {
         setUser(response.data.user);
         setLName(response.data.user.lastName);
@@ -370,7 +370,7 @@ const onSubmitIMG = async (data) => {
     btnRef11.current.style.display = 'none';
     btnRef12.current.style.display = 'inline-block';
     try {
-        const response = await axios.put(`http://localhost:4000/api/user/${userId}/address1`, { address1: data.address1 });
+        const response = await axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/address1`, { address1: data.address1 });
         setUser(response.data.user);
         resetFormAddress1();
         Swal.fire('Success', 'Address 1 updated successfully', 'success');
@@ -385,7 +385,7 @@ const onSubmitAddress2 = async (data) => {
     btnRef13.current.style.display = 'none';
     btnRef14.current.style.display = 'inline-block';
     try {
-        const response = await axios.put(`http://localhost:4000/api/user/${userId}/address2`, { address2: data.address2 });
+        const response = await axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/address2`, { address2: data.address2 });
         setUser(response.data.user);
         resetFormAddress2();
         Swal.fire('Success', 'Address 2 updated successfully', 'success');
@@ -400,7 +400,7 @@ const onSubmitPhone = async (data) => {
     btnRef15.current.style.display = 'none';
     btnRef16.current.style.display = 'inline-block';
     try {
-        const response = await axios.put(`http://localhost:4000/api/user/${userId}/phone`, { phone: data.Phone });
+        const response = await axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/phone`, { phone: data.Phone });
         setUser(response.data.user);
         resetFormPhone();
         Swal.fire('Success', 'Phone updated successfully', 'success');
@@ -415,7 +415,7 @@ const onSubmitTown = async (data) => {
     btnRef17.current.style.display = 'none';
     btnRef18.current.style.display = 'inline-block';
     try {
-        const response = await axios.put(`http://localhost:4000/api/user/${userId}/town`, { town: data.Town });
+        const response = await axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/town`, { town: data.Town });
         setUser(response.data.user);
         resetFormTown();
         Swal.fire('Success', 'Town updated successfully', 'success');
@@ -430,7 +430,7 @@ const onSubmitState = async (data) => {
     btnRef19.current.style.display = 'none';
     btnRef20.current.style.display = 'inline-block';
     try {
-        const response = await axios.put(`http://localhost:4000/api/user/${userId}/state`, { state: data.State });
+        const response = await axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/state`, { state: data.State });
         setUser(response.data.user);
         resetFormState();
         Swal.fire('Success', 'State/Province updated successfully', 'success');
@@ -445,7 +445,7 @@ const onSubmitPostCode = async (data) => {
     btnRef21.current.style.display = 'none';
     btnRef22.current.style.display = 'inline-block';
     try {
-        const response = await axios.put(`http://localhost:4000/api/user/${userId}/postcode`, { postcode: data.PostCode });
+        const response = await axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/postcode`, { postcode: data.PostCode });
         setUser(response.data.user);
         resetFormPostCode();
         Swal.fire('Success', 'Post Code updated successfully', 'success');
@@ -460,7 +460,7 @@ const onSubmitCountry = async (data) => {
     btnRef23.current.style.display = 'none';
     btnRef24.current.style.display = 'inline-block';
     try {
-        const response = await axios.put(`http://localhost:4000/api/user/${userId}/country`, { country: data.Country });
+        const response = await axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/country`, { country: data.Country });
         setUser(response.data.user);
         resetFormCountry();
         Swal.fire('Success', 'Country updated successfully', 'success');

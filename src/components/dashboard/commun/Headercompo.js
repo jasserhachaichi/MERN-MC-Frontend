@@ -18,7 +18,7 @@ function Headercompo({ breadcrumb,lastbreadcrumbItem, onToggleAside }) {
   const [totalNotifications, setTotalNotifications] = useState(1);
   const [unreadCount, setUnReadCount] = useState(0);
 
-  const baseURL = "http://localhost:4000/api/image/profile/";
+  const baseURL = "https://mern-material-cutting.onrender.com/api/image/profile/";
   const NotificationImage = ({ notification, baseURL }) => {
     const theImage =
       notification.sender.image
@@ -48,7 +48,7 @@ function Headercompo({ breadcrumb,lastbreadcrumbItem, onToggleAside }) {
   const fetchClientsData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:4000/api/getclients', {
+      const response = await axios.get('https://mern-material-cutting.onrender.com/api/getclients', {
         params: {
           limit: userLimit,
           search: searchInput,
@@ -88,7 +88,7 @@ function Headercompo({ breadcrumb,lastbreadcrumbItem, onToggleAside }) {
     });
     if (formValues) {
       try {
-        await axios.post('http://localhost:4000/chat/user/post', {
+        await axios.post('https://mern-material-cutting.onrender.com/chat/user/post', {
           receiver: userId,
           content: formValues
         }, { withCredentials: true });
@@ -128,7 +128,7 @@ function Headercompo({ breadcrumb,lastbreadcrumbItem, onToggleAside }) {
 
   const fetchNotifications = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/notifications/get', {
+      const response = await axios.get('https://mern-material-cutting.onrender.com/notifications/get', {
         params: {
           userId: userID,
           limit: currentLimit,
@@ -144,7 +144,7 @@ function Headercompo({ breadcrumb,lastbreadcrumbItem, onToggleAside }) {
 
   const markNotificationsAsRead = async (notificationIds) => {
     try {
-      await axios.post('http://localhost:4000/notifications/read', { notificationIds });
+      await axios.post('https://mern-material-cutting.onrender.com/notifications/read', { notificationIds });
       fetchNotifications();
     } catch (error) {
       console.error('Failed to mark notifications as read:', error);

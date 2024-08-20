@@ -24,7 +24,7 @@ function UpdateEdge() {
     useEffect(() => {
         const fetchEdge = async () => {
           try {
-            const response = await axios.get(`http://localhost:4000/product/edge/${EdgeId}`, {withCredentials: true});
+            const response = await axios.get(`https://mern-material-cutting.onrender.com/product/edge/${EdgeId}`, {withCredentials: true});
             const pivot = {
                 edge_name: response.data.edge.Edge_name,
                 edgedescription: response.data.edge.Edgedescription,
@@ -39,7 +39,7 @@ function UpdateEdge() {
             setFormData(pivot);
             setSelectedOption( '' +  response.data.edge.discount_option);
             if(response.data.edge.avatarEdge){
-                setImagePreviews({avatarEdge:  'http://localhost:4000/product/image/edge/' + response.data.edge.avatarEdge})
+                setImagePreviews({avatarEdge:  'https://mern-material-cutting.onrender.com/product/image/edge/' + response.data.edge.avatarEdge})
             }else{
                 setImagePreviews({avatarEdge: '/assets/media/svg/files/blank-image.svg',})
             }
@@ -169,7 +169,7 @@ function UpdateEdge() {
         //console.log(data);
 
         try {
-            const response = await axios.put(`http://localhost:4000/product/edge/${EdgeId}`, data, {
+            const response = await axios.put(`https://mern-material-cutting.onrender.com/product/edge/${EdgeId}`, data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

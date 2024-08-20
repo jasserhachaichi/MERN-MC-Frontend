@@ -185,7 +185,7 @@ function AddShape() {
         console.log(data);
     
         try {
-            const response = await axios.post('http://localhost:4000/product/addshape', data, {
+            const response = await axios.post('https://mern-material-cutting.onrender.com/product/addshape', data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

@@ -19,7 +19,7 @@ function UpdateMaterialType({ match }) {
     useEffect(() => {
         const fetchMaterialType = async () => {
           try {
-            const response = await axios.get(`http://localhost:4000/product/materialtype/${materialTypeId}`, {withCredentials: true});
+            const response = await axios.get(`https://mern-material-cutting.onrender.com/product/materialtype/${materialTypeId}`, {withCredentials: true});
             const pivot = {
                 materialType_name:response.data.material.materialType_name || "",
                 materialTypedescription: response.data.material.materialTypedescription || "",
@@ -28,7 +28,7 @@ function UpdateMaterialType({ match }) {
             }
             setFormData(pivot);
             if(response.data.material.avatarMaterialType){
-                setImagePreviews({avatarMaterialType:  'http://localhost:4000/product/image/materialtype/' + response.data.material.avatarMaterialType})
+                setImagePreviews({avatarMaterialType:  'https://mern-material-cutting.onrender.com/product/image/materialtype/' + response.data.material.avatarMaterialType})
             }else{
                 setImagePreviews({avatarMaterialType: '/assets/media/svg/files/blank-image.svg',})
             }
@@ -44,7 +44,7 @@ function UpdateMaterialType({ match }) {
     useEffect(() => {
         const fetchMaterials = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/settings/mother-material', { withCredentials: true });
+                const response = await axios.get('https://mern-material-cutting.onrender.com/settings/mother-material', { withCredentials: true });
                 const materials = response.data.map(material => ({ MotherMaterial: material.mother_material_name }));
                 setMotherMaterialList(materials);
             } catch (error) {
@@ -101,7 +101,7 @@ function UpdateMaterialType({ match }) {
         //console.log(data);
 
         try {
-            const response = await axios.put(`http://localhost:4000/product/materialtype/${materialTypeId}`, data, {
+            const response = await axios.put(`https://mern-material-cutting.onrender.com/product/materialtype/${materialTypeId}`, data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

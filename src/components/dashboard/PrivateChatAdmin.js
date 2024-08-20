@@ -4,7 +4,7 @@ import { AuthContext } from './../../AuthContext';
 import Chat from './Chat';
 
 import io from 'socket.io-client';
-const socket = io('http://localhost:4000', { withCredentials: true });
+const socket = io('https://mern-material-cutting.onrender.com', { withCredentials: true });
 
 function PrivateChatAdmin() {
     const {userFirstName,userLastName,userID, userRole, userImageUrl, userImage, isAuthenticated} = useContext(AuthContext);
@@ -41,7 +41,7 @@ function PrivateChatAdmin() {
         const fetchUsers = async () => {
             if(userID){
                 try {
-                    const response = await axios.get(`http://localhost:4000/chat/users/clients/${userID}`, { withCredentials: true });
+                    const response = await axios.get(`https://mern-material-cutting.onrender.com/chat/users/clients/${userID}`, { withCredentials: true });
                     setUsers(response.data);
                     const firstUser = response.data[0];
                     if (firstUser) {
@@ -62,7 +62,7 @@ function PrivateChatAdmin() {
                     // Initialize connected status for users
                     const initialStatus = {};
                     const promises = response.data.map(user =>
-                        axios.get(`http://localhost:4000/check_user_status/${user._id}`, { withCredentials: true })
+                        axios.get(`https://mern-material-cutting.onrender.com/check_user_status/${user._id}`, { withCredentials: true })
                     );
                     const responses = await Promise.all(promises);
         
@@ -119,7 +119,7 @@ function PrivateChatAdmin() {
         const checkUserStatus = async () => {
             try {
                 const promises = users.map(user =>
-                    axios.get(`http://localhost:4000/check_user_status/${user._id}`, { withCredentials: true })
+                    axios.get(`https://mern-material-cutting.onrender.com/check_user_status/${user._id}`, { withCredentials: true })
                 );
                 const responses = await Promise.all(promises);
                 const status = {};
@@ -152,10 +152,10 @@ function PrivateChatAdmin() {
         const checkUserStatus = async () => {
             if(userID){
                 try {
-                    const response = await axios.get(`http://localhost:4000/chat/users/clients/${userID}`, { withCredentials: true });
+                    const response = await axios.get(`https://mern-material-cutting.onrender.com/chat/users/clients/${userID}`, { withCredentials: true });
                     setUsers(response.data);
                     const promises = users.map(user =>
-                        axios.get(`http://localhost:4000/check_user_status/${user._id}`, { withCredentials: true })
+                        axios.get(`https://mern-material-cutting.onrender.com/check_user_status/${user._id}`, { withCredentials: true })
                     );
                     const responses = await Promise.all(promises);
                     const status = {};

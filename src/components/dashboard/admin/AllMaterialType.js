@@ -135,7 +135,7 @@ function AllMaterialType() {
     
         if (result.isConfirmed) {
           try {
-            await axios.delete(`http://localhost:4000/product/deletematerialtype/${userId}`, { withCredentials: true });
+            await axios.delete(`https://mern-material-cutting.onrender.com/product/deletematerialtype/${userId}`, { withCredentials: true });
             Swal.fire('Deleted!', 'Material Type has been deleted.', 'success');
             fetchData(); // Refresh the data
           } catch (error) {

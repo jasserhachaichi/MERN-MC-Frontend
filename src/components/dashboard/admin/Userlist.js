@@ -38,7 +38,7 @@ function Userlist() {
     const fetchData = async () => {
         setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:4000/api/staffs`, { params: { page: currentPage, limit: PerPage, search: searchInput, role: roleFilter}, withCredentials: true });
+        const response = await axios.get(`https://mern-material-cutting.onrender.com/api/staffs`, { params: { page: currentPage, limit: PerPage, search: searchInput, role: roleFilter}, withCredentials: true });
         setData(response.data.users);
         setTotalPages(response.data.totalPages);
         setCurrentPage(response.data.currentPage);
@@ -144,7 +144,7 @@ function Userlist() {
     
         if (result.isConfirmed) {
           try {
-            await axios.delete(`http://localhost:4000/api/deletestaff/${userId}`, { withCredentials: true });
+            await axios.delete(`https://mern-material-cutting.onrender.com/api/deletestaff/${userId}`, { withCredentials: true });
             Swal.fire('Deleted!', 'User has been deleted.', 'success');
             fetchData(); // Refresh the data
           } catch (error) {
@@ -219,7 +219,7 @@ function Userlist() {
             }
 
 
-            const response = await axios.post('http://localhost:4000/api/adduser', formData, {
+            const response = await axios.post('https://mern-material-cutting.onrender.com/api/adduser', formData, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data'

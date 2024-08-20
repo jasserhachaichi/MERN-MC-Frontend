@@ -3,7 +3,7 @@ import axios from 'axios';
 import io from 'socket.io-client';
 import Message from './Message';
 
-const socket = io('http://localhost:4000');
+const socket = io('https://mern-material-cutting.onrender.com');
 
 const Chat = ({ currentUser, chatUser }) => {
   /*     console.log("currentUser :" + currentUser);
@@ -40,7 +40,7 @@ const Chat = ({ currentUser, chatUser }) => {
             setShowNewMessage(false);
           }
           const container = document.getElementsByClassName('themessagecontainers')[0];
-          const response = await axios.get(`http://localhost:4000/chat/user/get/${chatUser._id}`, {
+          const response = await axios.get(`https://mern-material-cutting.onrender.com/chat/user/get/${chatUser._id}`, {
             params: { limit: thelimit },
             withCredentials: true,
           });
@@ -77,7 +77,7 @@ const Chat = ({ currentUser, chatUser }) => {
       const fetchMessages = async () => {
         try {
           const container = document.getElementsByClassName('themessagecontainers')[0];
-          const response = await axios.get(`http://localhost:4000/chat/user/get/${chatUser._id}`, { params: { limit: thelimit, }, withCredentials: true });
+          const response = await axios.get(`https://mern-material-cutting.onrender.com/chat/user/get/${chatUser._id}`, { params: { limit: thelimit, }, withCredentials: true });
           setMessages(response.data.messages);
           settotalMessages(response.data.totalMessages);
 
@@ -106,7 +106,7 @@ const Chat = ({ currentUser, chatUser }) => {
 
   const markMessageAsRead = async (messageId) => {
     try {
-      await axios.put(`http://localhost:4000/chat/user/read/${messageId}`, {}, { withCredentials: true });
+      await axios.put(`https://mern-material-cutting.onrender.com/chat/user/read/${messageId}`, {}, { withCredentials: true });
       setMessages((prevMessages) =>
         prevMessages.map((msg) => (msg._id === messageId ? { ...msg, read: true } : msg))
       );
@@ -171,7 +171,7 @@ const Chat = ({ currentUser, chatUser }) => {
       }
 
       const response = await axios.post(
-        'http://localhost:4000/chat/user/post', 
+        'https://mern-material-cutting.onrender.com/chat/user/post', 
         formData, 
         {
           headers: {
@@ -449,7 +449,7 @@ const Chat = ({ currentUser, chatUser }) => {
                                   {msg.attachment.path.toLowerCase().endsWith('.jpg') ||  msg.attachment.path.toLowerCase().endsWith('.png') ||  msg.attachment.path.toLowerCase().endsWith('.jpeg') || msg.attachment.path.toLowerCase().endsWith('.svg')? (
                                     <img src={`http://localhost:4000/chat/image/${msg.attachment.path}`} style={{maxWidth:"140px", height:"auto"}} alt={msg.attachment.originalname} className='shadow-lg     rounded' />
                                   ) : (
-                                    <a href={`http://localhost:4000/chat/image/${msg.attachment.path}`} target="_blank" rel="noopener noreferrer">
+                                    <a href={`https://mern-material-cutting.onrender.com/chat/image/${msg.attachment.path}`} target="_blank" rel="noopener noreferrer">
                                     <i className="ki-duotone ki-trash fs-1 "> <span className="path1"></span> <span className="path2"></span> <span className="path3"></span> <span className="path4"></span> <span className="path5"></span> </i>
                                       
                                       {msg.attachment.originalname}
@@ -494,7 +494,7 @@ const Chat = ({ currentUser, chatUser }) => {
                                   {msg.attachment.path.toLowerCase().endsWith('.jpg') ||  msg.attachment.path.toLowerCase().endsWith('.png') ||  msg.attachment.path.toLowerCase().endsWith('.jpeg') || msg.attachment.path.toLowerCase().endsWith('.svg')? (
                                     <img src={`http://localhost:4000/chat/image/${msg.attachment.path}`} style={{maxWidth:"140px", height:"auto"}} alt={msg.attachment.originalname} className='shadow-lg  rounded'/>
                                   ) : (
-                                    <a href={`http://localhost:4000/chat/image/${msg.attachment.path}`} target="_blank" rel="noopener noreferrer">
+                                    <a href={`https://mern-material-cutting.onrender.com/chat/image/${msg.attachment.path}`} target="_blank" rel="noopener noreferrer">
                                     <i className="ki-duotone ki-trash fs-1 "> <span className="path1"></span> <span className="path2"></span> <span className="path3"></span> <span className="path4"></span> <span className="path5"></span> </i>
                                       
                                       {msg.attachment.originalname}

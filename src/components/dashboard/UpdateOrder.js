@@ -77,7 +77,7 @@ function UpdateOrder() {
     const fetchOrderDetails = async () => {
       try {
 
-        const response = await axios.get(`http://localhost:4000/product/orderdetails/${orderId}`, {
+        const response = await axios.get(`https://mern-material-cutting.onrender.com/product/orderdetails/${orderId}`, {
           withCredentials: true 
         });
 
@@ -98,7 +98,7 @@ function UpdateOrder() {
     e.preventDefault();
     try {
       // Send a PUT request to update the order
-      const response = await axios.put(`http://localhost:4000/product/order/${orderId}`, formDataInvoice, {
+      const response = await axios.put(`https://mern-material-cutting.onrender.com/product/order/${orderId}`, formDataInvoice, {
         withCredentials: true
       });
       Swal.fire({
@@ -135,7 +135,7 @@ function UpdateOrder() {
 
       // Send update to the server
       try {
-        await axios.put(`http://localhost:4000/product/order/${orderId}/file/${index}`, { originalname: newName }, {
+        await axios.put(`https://mern-material-cutting.onrender.com/product/order/${orderId}/file/${index}`, { originalname: newName }, {
           withCredentials: true
         });
         Swal.fire('Success', 'File name updated successfully', 'success');
@@ -163,7 +163,7 @@ function UpdateOrder() {
 
         // Send delete request to the server
         try {
-          await axios.delete(`http://localhost:4000/product/order/${orderId}/file/${index}`, {
+          await axios.delete(`https://mern-material-cutting.onrender.com/product/order/${orderId}/file/${index}`, {
             withCredentials: true
           });
           Swal.fire('Deleted!', 'The file has been deleted.', 'success');

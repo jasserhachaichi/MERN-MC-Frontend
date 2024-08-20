@@ -21,7 +21,7 @@ const Message = ({ message, onEdit, onDelete }) => {
 
     const handleEdit = async () => {
         try {
-            const response = await axios.put(`http://localhost:4000/chat/user/edit/${message._id}`, { content }, { withCredentials: true });
+            const response = await axios.put(`https://mern-material-cutting.onrender.com/chat/user/edit/${message._id}`, { content }, { withCredentials: true });
             onEdit(response.data);
             setIsEditing(false);
         } catch (error) {
@@ -32,7 +32,7 @@ const Message = ({ message, onEdit, onDelete }) => {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:4000/chat/user/delete/${message._id}`, { withCredentials: true });
+            await axios.delete(`https://mern-material-cutting.onrender.com/chat/user/delete/${message._id}`, { withCredentials: true });
             onDelete(message._id);
         } catch (error) {
             console.error('Error deleting message:', error);

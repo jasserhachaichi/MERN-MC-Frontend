@@ -21,7 +21,7 @@ function AddMaterialType() {
     useEffect(() => {
         const fetchMaterials = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/settings/mother-material', { withCredentials: true });
+                const response = await axios.get('https://mern-material-cutting.onrender.com/settings/mother-material', { withCredentials: true });
                 const materials = response.data.map(material => ({ MotherMaterial: material.mother_material_name }));
                 setMotherMaterialList(materials);
 
@@ -103,7 +103,7 @@ function AddMaterialType() {
         console.log(data);
 
         try {
-            const response = await axios.post('http://localhost:4000/product/addmaterialtype', data, {
+            const response = await axios.post('https://mern-material-cutting.onrender.com/product/addmaterialtype', data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

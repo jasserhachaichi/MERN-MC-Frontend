@@ -35,7 +35,7 @@ function UpdateShape() {
     useEffect(() => {
         const fetchShape = async () => {
           try {
-            const response = await axios.get(`http://localhost:4000/product/shape/${ShapeId}`, {withCredentials: true});
+            const response = await axios.get(`https://mern-material-cutting.onrender.com/product/shape/${ShapeId}`, {withCredentials: true});
             const pivot = {
                 shape_name: response.data.shape.shapeName,
                 shapedescription: response.data.shape.shapedescription,
@@ -61,10 +61,10 @@ function UpdateShape() {
             setSelectedOption( '' +  response.data.shape.discountOption);
             if(response.data.shape.avatarShapeImg && response.data.shape.avatarEdgeImg && response.data.shape.avatarAnglesImg && response.data.shape.avatarDimensionsImg){
                 setImagePreviews({
-                    avatarShape:  'http://localhost:4000/product/image/shape/' + response.data.shape.avatarShapeImg,
-                    avatarEdge:  'http://localhost:4000/product/image/shape/' + response.data.shape.avatarEdgeImg,
-                    avatarAngles:  'http://localhost:4000/product/image/shape/' + response.data.shape.avatarAnglesImg,
-                    avatarDimensions:  'http://localhost:4000/product/image/shape/' + response.data.shape.avatarDimensionsImg,
+                    avatarShape:  'https://mern-material-cutting.onrender.com/product/image/shape/' + response.data.shape.avatarShapeImg,
+                    avatarEdge:  'https://mern-material-cutting.onrender.com/product/image/shape/' + response.data.shape.avatarEdgeImg,
+                    avatarAngles:  'https://mern-material-cutting.onrender.com/product/image/shape/' + response.data.shape.avatarAnglesImg,
+                    avatarDimensions:  'https://mern-material-cutting.onrender.com/product/image/shape/' + response.data.shape.avatarDimensionsImg,
                 })
             }else{
                 setImagePreviews({
@@ -245,7 +245,7 @@ function UpdateShape() {
         console.log(data);
     
         try {
-            const response = await axios.put(`http://localhost:4000/product/shape/${ShapeId}`, data, {
+            const response = await axios.put(`https://mern-material-cutting.onrender.com/product/shape/${ShapeId}`, data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

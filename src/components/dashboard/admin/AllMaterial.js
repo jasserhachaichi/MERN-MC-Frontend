@@ -190,7 +190,7 @@ function AllMaterial() {
     
         if (result.isConfirmed) {
           try {
-            await axios.delete(`http://localhost:4000/product/deletematerial/${userId}`, { withCredentials: true });
+            await axios.delete(`https://mern-material-cutting.onrender.com/product/deletematerial/${userId}`, { withCredentials: true });
             Swal.fire('Deleted!', 'material has been deleted.', 'success');
             fetchData(); // Refresh the data
           } catch (error) {

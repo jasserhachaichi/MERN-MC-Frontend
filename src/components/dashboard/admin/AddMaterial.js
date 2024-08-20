@@ -37,7 +37,7 @@ function AddMaterial() {
     }, [formData.avatarMaterial]);
     useEffect(() => {
         // Fetch material types from the backend
-        axios.get('http://localhost:4000/product/order/materialtypes')
+        axios.get('https://mern-material-cutting.onrender.com/product/order/materialtypes')
             .then(response => {
                 setMaterialTypes(response.data.materialtypes);
             })
@@ -181,7 +181,7 @@ function AddMaterial() {
         console.log(data);
 
         try {
-            const response = await axios.post('http://localhost:4000/product/addmaterial', data, {
+            const response = await axios.post('https://mern-material-cutting.onrender.com/product/addmaterial', data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

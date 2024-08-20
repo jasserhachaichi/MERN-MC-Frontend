@@ -36,7 +36,7 @@ function OverViewAdmin() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/product/order/${orderId}/${userId}`, {
+            const response = await axios.get(`https://mern-material-cutting.onrender.com/product/order/${orderId}/${userId}`, {
                 withCredentials: true 
             });
 
@@ -117,7 +117,7 @@ function OverViewAdmin() {
                         <div className="d-flex flex-stack pb-10">
                             <a href="#">
                                 <img alt="Logo"
-                                    src={ "http://localhost:4000/settings/image/" + receiver.logopath} />
+                                    src={ "https://mern-material-cutting.onrender.com/settings/image/" + receiver.logopath} />
                             </a>
                         </div>
                     )}
@@ -477,7 +477,7 @@ function OverViewAdmin() {
                                             <tr className="fw-bold text-gray-700 fs-5 border-bottom" key={index}>
                                                 <td>{file.originalname}</td>
                                                 <td className='d-print-none'>
-                                                    <a href={`http://localhost:4000/product/image/order/${file.path}`} download={file.path}>Download</a>
+                                                    <a href={`https://mern-material-cutting.onrender.com/product/image/order/${file.path}`} download={file.path}>Download</a>
                                                 </td>
                                             </tr>
                                         ))}

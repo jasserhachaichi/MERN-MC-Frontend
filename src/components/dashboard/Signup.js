@@ -45,7 +45,7 @@ const Signup = () => {
         try {
             btnRef1.current.style.display = 'none';
             btnRef2.current.style.display = 'block';
-            const response = await axios.post('http://localhost:4000/auth/register', data, { withCredentials: true });
+            const response = await axios.post('https://mern-material-cutting.onrender.com/auth/register', data, { withCredentials: true });
 
             if (response.data.result) {
 
@@ -84,7 +84,7 @@ const Signup = () => {
     const onSuccess = (res) => {
         console.log("Login Success! Current user: ", res.profileObj);
         try {
-            axios.post('http://localhost:4000/auth/google/register', res.profileObj, { withCredentials: true } 
+            axios.post('https://mern-material-cutting.onrender.com/auth/google/register', res.profileObj, { withCredentials: true } 
             ).then(response => {
                 if (response.data.result) {
                     if (response.data.token) {

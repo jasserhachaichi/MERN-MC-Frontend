@@ -24,7 +24,7 @@ function Statistic() {
   useEffect(() => {
     async function fetchStatistics() {
       try {
-        const response = await axios.get('http://localhost:4000/statistics/', { withCredentials: true });
+        const response = await axios.get('https://mern-material-cutting.onrender.com/statistics/', { withCredentials: true });
         setStats(response.data);
       } catch (error) {
         console.error('Error fetching statistics:', error);

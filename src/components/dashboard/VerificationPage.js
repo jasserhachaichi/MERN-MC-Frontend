@@ -9,7 +9,7 @@ const VerificationPage = () => {
 
   useEffect(() => {
     // Define the URL endpoint for your API
-    const endpoint = `http://localhost:4000/auth/${userId}/verify/${token}`;
+    const endpoint = `https://mern-material-cutting.onrender.com/auth/${userId}/verify/${token}`;
 
     // Perform the Axios request
     axios.post(endpoint)

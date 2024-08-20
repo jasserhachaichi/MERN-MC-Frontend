@@ -105,7 +105,7 @@ function Userview() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/api/user/${userId}`,{withCredentials: true});
+                const response = await axios.get(`https://mern-material-cutting.onrender.com/api/user/${userId}`,{withCredentials: true});
                 setUser(response.data.user);
                 setImagePreview( response.data.user.image || response.data.user.imageUrl || '/assets/images/Default-profile.jpg');
                 setFName(response.data.user.firstName);
@@ -125,7 +125,7 @@ function Userview() {
             btnRef1.current.style.display = 'none';
             btnRef2.current.style.display = 'inline-block';
 
-            const response = await axios.put(`http://localhost:4000/api/user/${userId}/email`, { email: data.email }, { withCredentials: true });
+            const response = await axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/email`, { email: data.email }, { withCredentials: true });
             Swal.fire('Updated!', response.data.message, 'success');
             resetForm1();
             btnRef1.current.style.display = 'inline-block';
@@ -156,7 +156,7 @@ function Userview() {
     
         if (result.isConfirmed) {
           try {
-            await axios.delete(`http://localhost:4000/api/deletestaff/${userId}`, { withCredentials: true });
+            await axios.delete(`https://mern-material-cutting.onrender.com/api/deletestaff/${userId}`, { withCredentials: true });
             Swal.fire('Deleted!', 'User has been deleted.', 'success');
             navigate('/admin/users');
           } catch (error) {
@@ -178,7 +178,7 @@ function Userview() {
             btnRef3.current.style.display = 'none';
             btnRef4.current.style.display = 'inline-block';
 
-            const response = await axios.put(`http://localhost:4000/api/user/${userId}/password`, {
+            const response = await axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/password`, {
                 current_password: data.current_password,
                 new_password: data.new_password,
                 confirm_password: data.confirm_password
@@ -202,7 +202,7 @@ function Userview() {
         btnRef5.current.style.display = 'none';
         btnRef6.current.style.display = 'block';
         try {
-        const response = await axios.put(`http://localhost:4000/api/user/${userId}/role`, data, { withCredentials: true });
+        const response = await axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/role`, data, { withCredentials: true });
         console.log('User role updated:', response.data);
         setUser(response.data.user);
         setSelectedFile(null);
@@ -254,7 +254,7 @@ const onSubmitIMG = async (data) => {
         formData.append('avatar', selectedFile);
       }
 
-      const response = await axios.put(`http://localhost:4000/api/user/img/${userId}`, formData, {
+      const response = await axios.put(`https://mern-material-cutting.onrender.com/api/user/img/${userId}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -290,7 +290,7 @@ const onSubmitIMG = async (data) => {
     btnRef9.current.style.display = 'none';
     btnRef10.current.style.display = 'inline-block';
 
-    axios.put(`http://localhost:4000/api/user/${userId}/firstname`, { firstName: data.firstName })
+    axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/firstname`, { firstName: data.firstName })
       .then(response => {
         setUser(response.data.user);
         setFName(response.data.user.firstName);
@@ -304,7 +304,7 @@ const onSubmitIMG = async (data) => {
   };
 
   const onSubmitLastName = data => {
-    axios.put(`http://localhost:4000/api/user/${userId}/lastname`, { lastName: data.lastName })
+    axios.put(`https://mern-material-cutting.onrender.com/api/user/${userId}/lastname`, { lastName: data.lastName })
       .then(response => {
         setUser(response.data.user);
         setLName(response.data.user.lastName);

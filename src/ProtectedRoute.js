@@ -11,7 +11,7 @@ const ProtectedRoute = ({ children, roles }) => {
   useEffect(() => {
     const checkAuthStatus = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/protected', { withCredentials: true });
+        const response = await axios.get('https://mern-material-cutting.onrender.com/protected', { withCredentials: true });
         if (response.data.isAuthenticated && response.data.user) {
           setIsAuthenticated(true);
           setUserRole(response.data.user.role); // Assuming the role is sent in the response
